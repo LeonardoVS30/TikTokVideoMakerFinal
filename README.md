@@ -6,10 +6,10 @@
 	<em><code>❯ REPLACE-ME</code></em>
 </p>
 <p align="center">
-	<img src="https://img.shields.io/github/license/LeonardoVS30/TikTokVideoMakerFinal.git?style=default&logo=opensourceinitiative&logoColor=white&color=0080ff" alt="license">
-	<img src="https://img.shields.io/github/last-commit/LeonardoVS30/TikTokVideoMakerFinal.git?style=default&logo=git&logoColor=white&color=0080ff" alt="last-commit">
-	<img src="https://img.shields.io/github/languages/top/LeonardoVS30/TikTokVideoMakerFinal.git?style=default&color=0080ff" alt="repo-top-language">
-	<img src="https://img.shields.io/github/languages/count/LeonardoVS30/TikTokVideoMakerFinal.git?style=default&color=0080ff" alt="repo-language-count">
+    <img src="https://img.shields.io/github/license/LeonardoVS30/TikTokVideoMakerFinal?style=default&logo=opensourceinitiative&logoColor=white&color=0080ff" alt="license">
+    <img src="https://img.shields.io/github/last-commit/LeonardoVS30/TikTokVideoMakerFinal?style=default&logo=git&logoColor=white&color=0080ff" alt="last-commit">
+    <img src="https://img.shields.io/github/languages/top/LeonardoVS30/TikTokVideoMakerFinal?style=default&color=0080ff" alt="repo-top-language">
+    <img src="https://img.shields.io/github/languages/count/LeonardoVS30/TikTokVideoMakerFinal?style=default&color=0080ff" alt="repo-language-count">
 </p>
 <p align="center"><!-- default option, no dependency badges. -->
 </p>
@@ -255,8 +255,7 @@ Run the test suite using the following command:
 
 ## 🎗 License
 
-This project is protected under the [SELECT-A-LICENSE](https://choosealicense.com/licenses) License. For more details, refer to the [LICENSE](https://choosealicense.com/licenses/) file.
-
++ This project is licensed under the [MIT License](LICENSE).
 ---
 
 ## 🙌 Acknowledgments
