@@ -53,7 +53,11 @@ La aplicación actúa como una interfaz gráfica para el potente motor de video 
 
 ---
 
-##
+## 📸 Screenshot
+
+![App Screenshot](https://github.com/LeonardoVS30/TikTokVideoMakerFinal/blob/6e88a102d1b5fa5e97dc36b4da7837694b6943cc/assets/screenshot.png)`
+
+---
 
 ## 📁 Project Structure
 
