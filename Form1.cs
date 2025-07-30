@@ -6,17 +6,12 @@ using System.Windows.Forms;
 using FFMpegCore; // Para FFMpegArguments
 using FFMpegCore.Enums; // Para VideoCodec, etc.
 using FFMpegCore.Pipes; // ¡IMPORTANTE! Para IVidepPipeSource
-using System.Threading.Tasks; // Para Task
+using System.Threading.Tasks;
+using System.Runtime.InteropServices; // Para Task
 
 namespace TikTokVideoMakerFinal
 {
-    public class GifSequenceItem
-    {
-        public string FilePath { get; set; }
-        public int Repetitions { get; set; } = 2;
-        public override string ToString() => $"{Path.GetFileName(FilePath)} (Repeticiones: {Repetitions})";
-    }
-
+    
     public partial class Form1 : Form
     {
         private List<GifSequenceItem> gifSequence = new List<GifSequenceItem>();
@@ -27,23 +22,23 @@ namespace TikTokVideoMakerFinal
             InitializeComponent();
             SetupTheme();
             lvSequence.Columns.Add("Secuencia", -2);
+            this.Text = String.Empty;
+            this.ControlBox = false; // Oculta la barra de título y botones de control
+            this.DoubleBuffered = true; // Mejora el renderizado para evitar parpadeos
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea; // Evita que la ventana se salga de la pantalla
         }
 
         private void SetupTheme()
         {
             this.BackColor = Color.FromArgb(45, 45, 48);
             this.ForeColor = Color.White;
-            this.Text = "Creador de Video para TikTok v2.0 - ¡Funcional!";
+            this.Text = "Creador de Video para TikTok";
         }
 
         // =======================================================
         // LÓGICA DE LA INTERFAZ (Eventos de los botones, etc.)
         // =======================================================
 
-        // --- PEGA AQUÍ LOS MÉTODOS QUE YA TIENES Y FUNCIONAN ---
-        // btnAddGif_Click, btnRemoveGif_Click, btnMoveUp_Click, btnMoveDown_Click,
-        // lvSequence_SelectedIndexChanged, numRepetitions_ValueChanged, btnSelectAudio_Click
-        // ... por ejemplo:
         private void btnAddGif_Click(object sender, EventArgs e)
         {
             using (var openFileDialog = new OpenFileDialog { Filter = "Archivos GIF (*.gif)|*.gif", Multiselect = true })
@@ -59,8 +54,6 @@ namespace TikTokVideoMakerFinal
             }
         }
 
-        // (Asegúrate de tener todos los demás métodos de la interfaz aquí)
-        // ...
 
         private void RefreshListView()
         {
@@ -216,7 +209,7 @@ namespace TikTokVideoMakerFinal
 
                 if (success)
                 {
-                    MessageBox.Show($"¡Video creado con éxito!\n\nGuardado en: {outputPath}", "¡VICTORIA FINAL!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"¡✅ Video creado con éxito!\n\nGuardado en: {outputPath}", "¡VICTORIA FINAL!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
@@ -251,5 +244,31 @@ namespace TikTokVideoMakerFinal
             numDuration.Enabled = isEnabled;
             lvSequence.Enabled = isEnabled;
         }
+
+
+        //Drag Form
+        [DllImport("User32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+
+        [DllImport("User32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+        private void Form1_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0xA1, 0x2, 0); // WM_NCLBUTTONDOWN = 0xA1, HTCAPTION = 0x2
+        }
+
+        private void Exit_btn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+    }
+
+    public class GifSequenceItem
+    {
+        public string FilePath { get; set; }
+        public int Repetitions { get; set; } = 2;
+        public override string ToString() => $"{Path.GetFileName(FilePath)} (Repeticiones: {Repetitions})";
     }
 }
