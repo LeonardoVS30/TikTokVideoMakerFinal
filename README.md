@@ -1,7 +1,7 @@
 ﻿<p align="center">
     <img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/ec559a9f6bfd399b82bb44393651661b08aaf7ba/icons/folder-markdown-open.svg" align="center" width="30%">
 </p>
-<p align="center"><h1 align="center">TIKTOKVIDEOMAKERFINAL.GIT</h1></p>
+<p align="center"><h1 align="center">TIK TOK VIDEO MAKER</h1></p>
 <p align="center">
     <img src="https://img.shields.io/github/license/LeonardoVS30/TikTokVideoMakerFinal?style=for-the-badge&logo=opensourceinitiative&logoColor=white&color=blue" alt="license">
     <img src="https://img.shields.io/github/last-commit/LeonardoVS30/TikTokVideoMakerFinal?style=for-the-badge&logo=git&logoColor=white&color=blue" alt="last-commit">
